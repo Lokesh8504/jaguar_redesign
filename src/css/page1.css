@@ -1,0 +1,102 @@
+/* src/css/page1.css */
+
+/* Keyframes for the image animation */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+@keyframes fadeInUpText {
+    0% {
+      transform: translateY(0%);
+      animation-duration: 2s;
+    }
+    25%{
+      animation-duration: 5s;
+        transform: translateY(-32%);
+    }
+    50%{
+      animation-duration: 5s;
+        transform: translateY(-68%);
+    }
+    75% {
+      animation-duration: 5s;
+      transform: translateY(-32%);
+    }
+    100% {
+      animation-duration: 5s;
+      transform: translateY(0%);
+    }
+  }
+  
+  .animate-text-container{
+    animation: fadeInUpText 8s cubic-bezier(1, 0, 0, 1) infinite;
+    z-index: -1;
+  }
+
+  .mirrored-image {
+    transform: scaleX(-1);
+  }
+
+  .burger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 10px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  .line {
+    width: 120%;
+    height: 2px;
+    background-color: gray;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .burger-icon.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(1px, -1px);
+  }
+  
+  .burger-icon.open .line:nth-child(2) {
+    transform: rotate(-45deg) translate(6px, -5px);
+  }
+  
+  /* Navbar menu */
+
+  .nav-menu {
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.5s cubic-bezier(0.73, 1, 0.32, 1);
+
+  }
+  
+  .nav-menu.open {
+    clip-path: circle(144% at 100% 0%);
+  }
+  
+
+  .image-container {
+    position: relative;
+    width: 50vw;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    height: auto;
+    transition: bottom 0.5s ease-in-out;
+  }
+  
+  .group:hover .image-container img {
+    bottom: 0;
+  }
+  
